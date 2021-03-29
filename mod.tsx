@@ -7,8 +7,12 @@ import {
 const Body = () => (
   <body>
     <h1>Hello, world of Deno Deploy!</h1>
-    <img src="https://syum.ai/image/random" />
-    <a href="https://github.com/syumai/deno-deploy-example">GitHub Repo</a>
+    <div>
+      <img src="https://syum.ai/image/random" />
+    </div>
+    <div>
+      <a href="https://github.com/syumai/deno-deploy-example">GitHub Repo</a>
+    </div>
   </body>
 );
 
