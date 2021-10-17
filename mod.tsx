@@ -4,6 +4,8 @@ import {
   renderHTML,
 } from "https://denopkg.com/syumai/deno-libs/jsx/renderer.ts";
 
+import { listenAndServe } from "https://deno.land/std@0.111.0/http/server.ts";
+
 const Body = () => (
   <body>
     <h1>Hello, world of Deno Deploy!</h1>
@@ -25,19 +27,12 @@ const html = (
   </html>
 );
 
-interface Responder {
-  respondWith(res: Response): void;
-}
-
-addEventListener("fetch", (event) => {
-  const e = (event as unknown) as Responder;
-  e.respondWith(
-    new Response(renderHTML(html), {
-      status: 200,
-      headers: {
-        server: "denosr",
-        "content-type": "text/html",
-      },
-    })
-  );
-});
+listenAndServe(":8080", () => (
+  new Response(renderHTML(html), {
+    status: 200,
+    headers: {
+      server: "denosr",
+      "content-type": "text/html",
+    },
+  })
+));

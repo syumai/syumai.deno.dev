@@ -16,4 +16,4 @@ go.run(result.instance);
 const img = await Deno.open("./syumai.png");
 const scaled = scaleImage(img, 2);
 Deno.copy(scaled, Deno.stdout);
-img.close()
+img.close();
